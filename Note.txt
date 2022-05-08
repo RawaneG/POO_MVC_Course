@@ -1,0 +1,50 @@
+                                                Héritage dans le MLD
+                            /*************************SINGLE TABLE****************************/
+Toutes les classes qui participent à l'héritage seront dans une seule table.
+                            /****************************JOINED*******************************/
+On crée autant de tables que de classes mais la clé de la table de la classe mère
+migre comme clé étrangère au niveau des classes filles.
+                            /*********************TABLES QUI SERONT CRÉEES********************/
+--personne (id,nom_complet,role)
+--user (login,password,#personne_id)
+--professeur (grade, #personne_id)
+--rp (#personne_id)
+--attache (#personne_id)
+--etudiant (matricule,adresse,sexe,#personne_id)
+                            /****************************MIGRATIONS*******************************/
+En MLD la clé du faible migre vers la clé forte (opposé avec UML)
+Relation Many To One || One To Many
+    --annee_scolaire (id, libelle)
+    --inscription (#annee_id)
+Relation Many To Many
+    --classe(id, libelle, filiere, niveau)
+    --association : professeur_classe(#classe_id, #professeur_id)
+                            /*************************TYPE DE REQUETES*******************************/
+Requete de Mise à jour : Requêtes permettant de changer l'état de la table
+    Elle retourne toujours un entier correspondant au nombre de lignes modifiée
+    --INSERT 
+    --UPDATE
+    --DELETE
+Requete SELECT nous permet de retourner soit des objets ou des tableaux.
+                            /*****************************AUTRES NOTES*******************************/
+L'interface nous permet de définir l'ensemble des fonctions ou méthodes dont l'on aura besoin. Elle est créee le plus 
+souvent lorsque des classes ont plusieurs méthodes communes mais ne partagent pas le même type. Lorsqu'elles 
+partagent le même type une classe abstraite est créee à la place.
+    --Pour qu'une classe concrète accède ou hérite à ces méthodes, elle doit faire une implémentation ou 
+    une redéfinition de ces méthodes, par redéfinition des méthodes ou implémentation on veut dire 
+    que la classe doit transformer les méthode abstraites en méthode concrètes.
+    --Par contre lorsqu'une classe est abstraite elle peut directement accéder ou hériter des méthodes de l'interface,
+    car les classes abstraites peuvent contenir à la fois des méthodes concrètes et abstraites.
+                            /*****************************PROBLEME*******************************/
+Lorsqu'une classe hérite d'une interface et que cette classe est concrète, elle est obligée d'implémenter toutes les
+méthodes abstraites de cette classe sans pour autant avoir besoin de toutes ces méthodes.
+    --Exemple : Une classe concrète héritant d'une interface ayant 100 méthodes abstraites devra obligatoirement 
+    implémenter ou redéfinir toutes les 100 méthodes abstraites en méthodes concrètes, alors que la classe en question 
+    n'a besoin en réalité que d'une seule méthode.
+                            /*****************************SOLUTION*******************************/
+On crée une classe d'implémentation, c'est à dire une classe entièrement dédiée à la transformation de toutes les 
+méthodes abstraites de l'interface en des méthodes concrètes. Et ainsi à partir de cette classe d'implémentation, 
+les autres classes qui hériteront d'elle pourront choisir les méthodes concrètes qui leur correspondent.
+
+
+        
