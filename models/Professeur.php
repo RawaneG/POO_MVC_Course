@@ -3,7 +3,7 @@
     {
         public function __construct()
         {
-            $this->role = 'ROLE_PROFESSEUR';
+            self::$role = 'ROLE_PROFESSEUR';
         }
         //--Approche : Fonctions navigationnelles
         //--Relation :  Many To Many avec Classe

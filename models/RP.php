@@ -3,6 +3,6 @@
     {
             public function __construct()
             {
-                $this->role = 'ROLE_RP';
+                self::$role = 'ROLE_RP';
             }
     }

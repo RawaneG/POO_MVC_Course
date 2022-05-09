@@ -15,7 +15,7 @@
     //-- pour être plus précis ceux qui ont la visibilité "static".
 abstract class Personne extends Model
 {
-    protected string $role;
+    protected static string $role;
     public static function setNombreDePersonnes ($nombreDePersonnes) : void
     {
         self::$nombreDePersonnes = $nombreDePersonnes;
@@ -49,5 +49,11 @@ abstract class Personne extends Model
     public function getNomComplet () : string
     {
         return $this->nomComplet;
+    }
+
+    public static function findAll () : array
+    {
+        $sql = 'SELECT * FROM Personne WHERE role LIKE ' .self::$role;
+        return [];
     }
 }

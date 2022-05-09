@@ -7,7 +7,7 @@
             private array $inscriptions;
             public function __construct()
             {
-                $this->role = 'ROLE_AC';
+                self::$role = 'ROLE_AC';
                 $this->inscriptions = [];
             }
         //--2ème approche

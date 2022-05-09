@@ -1,4 +1,4 @@
-                                                Héritage dans le MLD
+                                                Héritage dans le MLD (Base de donnée)
                             /*************************SINGLE TABLE****************************/
 Toutes les classes qui participent à l'héritage seront dans une seule table.
                             /****************************JOINED*******************************/
@@ -45,6 +45,15 @@ méthodes abstraites de cette classe sans pour autant avoir besoin de toutes ces
 On crée une classe d'implémentation, c'est à dire une classe entièrement dédiée à la transformation de toutes les 
 méthodes abstraites de l'interface en des méthodes concrètes. Et ainsi à partir de cette classe d'implémentation, 
 les autres classes qui hériteront d'elle pourront choisir les méthodes concrètes qui leur correspondent.
+                            /***************Méthodes Statiques & Méthodes d'Instances************/
+Une méthode d'instance est une méthode d'objet c'est à dire que c'est une méthode spécifique qu'à certains objets.
+Alors qu'une méthode statique est une méthode de classe, elle est partagée par tous les objets et est définie au 
+niveau de la classe. 
+    --Étant donnée qu'elle est déjà définie dans la classe, elle n'a donc pas besoin de l'état de 
+    l'objet pour être appelée ou être fonctionnelle contrairement à la méthode d'instance. Par état de l'objet on fait 
+    référence aux valeurs que l'on attribue à l'objet.
+    --Une méthode d'instance est transformée en méthode statique lorsque l'on passe en paramètre à la méthode l'état 
+    de l'objet.
 
 
         

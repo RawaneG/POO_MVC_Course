@@ -10,19 +10,19 @@
             {
                 return 0;
             }
-            public function delete () : int
+            public static function delete (int $id) : int
             {
                 return 0;
             }
-            public function findAll () : array
+            public static function findAll () : array
             {
                 return [];
             }
-            public function findById () : object | null
+            public static function findById (int $id) : object | null
             {
                 return null;
             }
-            public function findBy (string $sql, array $data = null, $single = false) : object | null | array
+            public static function findBy (string $sql, array $data = null, $single = false) : object | null | array
             {
                 return null;
             }

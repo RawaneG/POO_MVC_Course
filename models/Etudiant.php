@@ -7,7 +7,7 @@
 
         public function __construct()
         {
-            $this->role = 'ROLE_ETUDIANT';
+            self::$role = 'ROLE_ETUDIANT';
         }
 
         public function getMatricule()
