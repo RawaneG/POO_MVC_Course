@@ -1,4 +1,6 @@
 <?php
+namespace Rawane\Model;
+
     class Etudiant extends User
     {
         private string $matricule;
@@ -7,7 +9,7 @@
 
         public function __construct()
         {
-            self::$role = 'ROLE_ETUDIANT';
+            parent::$role = 'ROLE_ETUDIANT';
         }
 
         public function getMatricule()
@@ -41,5 +43,12 @@
         {
             $this->adresse = $adresse;
             return $this;
+        }
+        //--Redefinition de la méthode findAll
+        public static function findAll () : array
+        {
+            $sql = "SELECT * FROM " .parent::table(). " WHERE role NOT LIKE ROLE_ETUDIANT";
+            echo $sql;
+            return [];
         }
     }

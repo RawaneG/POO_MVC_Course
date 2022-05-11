@@ -1,4 +1,6 @@
 <?php
+namespace Rawane\Model;
+    use Rawane\Core\Model;
     //--Personne est une classe "concrète" : Une classe qui produit des objets.
     //--Une classe finale est une classe qui ne peut pas avoir de classes filles, 
         //--Elle est reconnue avec le mot clé "final" suivi de "class".
@@ -15,6 +17,10 @@
     //-- pour être plus précis ceux qui ont la visibilité "static".
 abstract class Personne extends Model
 {
+    public function __construct ()
+    {
+        parent::$table = 'personne';
+    }
     protected static string $role;
     public static function setNombreDePersonnes ($nombreDePersonnes) : void
     {
@@ -50,10 +56,11 @@ abstract class Personne extends Model
     {
         return $this->nomComplet;
     }
-
+    //Redéfinition
     public static function findAll () : array
     {
-        $sql = 'SELECT * FROM Personne WHERE role LIKE ' .self::$role;
+        $sql = "SELECT * FROM " .parent::table();
+        echo $sql;
         return [];
     }
 }

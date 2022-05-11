@@ -1,9 +1,11 @@
 <?php
+namespace Rawane\Model;
+
     class Professeur extends Personne
     {
         public function __construct()
         {
-            self::$role = 'ROLE_PROFESSEUR';
+            parent::$role = 'ROLE_PROFESSEUR';
         }
         //--Approche : Fonctions navigationnelles
         //--Relation :  Many To Many avec Classe
@@ -17,5 +19,11 @@
             //--DELETE
             //--SELECT ALL (Exemple : SELECT * FROM Professeur)
             //--SELECT BY ID (Exemple : SELECT * FROM Professeur WHERE ID = 1)
-
+        //--Redefinition de la méthode findAll
+        public static function findAll () : array
+        {
+            $sql = "SELECT * FROM " .parent::table(). " WHERE role LIKE ROLE_PROFESSEUR";
+            echo $sql;
+            return [];
+        }
     }

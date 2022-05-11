@@ -1,4 +1,5 @@
 <?php
+namespace Rawane\Model;
     class AC extends User
     {
         //--1ère approche
@@ -7,7 +8,7 @@
             private array $inscriptions;
             public function __construct()
             {
-                self::$role = 'ROLE_AC';
+                parent::$role = 'ROLE_AC';
                 $this->inscriptions = [];
             }
         //--2ème approche
@@ -17,4 +18,11 @@
             {
                 return [];
             }
+        //--Redefinition de la méthode findAll
+        public static function findAll () : array
+        {
+            $sql = "SELECT * FROM " .parent::table(). " WHERE role LIKE ROLE_AC";
+            echo $sql;
+            return [];
+        }
     }

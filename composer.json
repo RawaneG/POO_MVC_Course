@@ -1,9 +1,20 @@
 {
-    "autoload" : 
+    "name": "rawane/my_poo",
+    "autoload": 
     {
-            "classmap" : 
-            [
-                "./models/"
-            ]
+        "psr-4": 
+        {
+            "Rawane\\Core\\": "core/",
+            "Rawane\\Model\\": "models/",
+            "Rawane\\Controller\\": "controllers/"
         }
+    },
+    "authors": 
+    [
+        {
+            "name": "Rawane",
+            "email": "rawane.meissa@gmail.com"
+        }
+    ],
+    "require": {}
 }

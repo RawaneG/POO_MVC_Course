@@ -6,14 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AC' => $baseDir . '/models/AC.php',
-    'AnneeScolaire' => $baseDir . '/models/AnneeScolaire.php',
-    'Classe' => $baseDir . '/models/Classe.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Etudiant' => $baseDir . '/models/Etudiant.php',
-    'Inscription' => $baseDir . '/models/Inscription.php',
-    'Personne' => $baseDir . '/models/Personne.php',
-    'Professeur' => $baseDir . '/models/Professeur.php',
-    'RP' => $baseDir . '/models/RP.php',
-    'User' => $baseDir . '/models/User.php',
 );

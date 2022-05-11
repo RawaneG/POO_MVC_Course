@@ -1,4 +1,6 @@
 <?php
+namespace Rawane\Model;
+
     abstract class User extends Personne
     {
         protected string $login;
@@ -35,5 +37,17 @@
         {
             $this->role = $role;
             return $this;
+        }
+        //--Redefinition de la méthode findAll
+        public static function findAll () : array
+        {
+            $sql = "SELECT * FROM " .parent::table(). " WHERE role NOT LIKE 'ROLE_PROFESSEUR'";
+            echo $sql;
+            return [];
+        }
+        public function findUserByLoginAndPassword (string $login, string $password) : object | null
+        {   
+            return self::findBy ("SELECT * FROM Personne WHERE login = ? AND password = ? ",
+            [login, password], true);
         }
     }

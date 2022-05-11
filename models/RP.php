@@ -1,8 +1,17 @@
 <?php
+namespace Rawane\Model;
+
     class RP extends User
     {
-            public function __construct()
-            {
-                self::$role = 'ROLE_RP';
-            }
+        public function __construct()
+        {
+            parent::$role = 'ROLE_RP';
+        }
+        //--Redefinition de la méthode findAll
+        public static function findAll () : array
+        {
+            $sql = "SELECT * FROM " .parent::table(). " WHERE role LIKE ROLE_RP";
+            echo $sql;
+            return [];
+        }
     }

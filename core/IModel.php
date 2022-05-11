@@ -1,4 +1,6 @@
 <?php
+namespace Rawane\Core;
+
 //--Une interface ne contient que des fonctions abstraites
     interface IModel
     {
