@@ -47,8 +47,7 @@ namespace Rawane\Model;
         //--Redefinition de la méthode findAll
         public static function findAll () : array
         {
-            $sql = "SELECT * FROM " .parent::table(). " WHERE role NOT LIKE ROLE_ETUDIANT";
-            echo $sql;
+            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` NOT LIKE 'ROLE_ETUDIANT'";
             return [];
         }
     }

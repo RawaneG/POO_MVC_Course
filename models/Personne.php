@@ -19,7 +19,7 @@ abstract class Personne extends Model
 {
     public function __construct ()
     {
-        parent::$table = 'personne';
+        parent::$table = 'Personne';
     }
     protected static string $role;
     public static function setNombreDePersonnes ($nombreDePersonnes) : void

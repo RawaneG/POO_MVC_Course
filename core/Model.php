@@ -3,11 +3,9 @@ namespace Rawane\Core;
 
     abstract class Model implements IModel
     {
-        protected static Database | null $database = null;
-
-        public static function database () : Database
+        protected static function database () : Database
         {
-            return self::$database = new Database ();
+            return new Database ();
         }
         public static function table () : string
         {
@@ -15,7 +13,7 @@ namespace Rawane\Core;
             $table = str_replace('Rawane\\Model\\', '', $table);
             if($table == 'User' || $table == 'AC' || $table == 'RP' || $table == 'Etudiant' || $table == 'Professeur')
             {
-                $table = strtolower('Personne');
+                $table = 'Personne';
             }
             return $table;
         }
@@ -30,7 +28,7 @@ namespace Rawane\Core;
             }
             public static function delete (int $id) : int
             {
-                $db->self::database ();
+                $db = self::database ();
                 $db->connexionDB ();
                 //--Requête non préparée : C'est lorsque l'on injecte une variable pendant l'écriture d'une requête. (C'est à éviter)
                 $sql = "DELETE FROM " .self::table(). " WHERE id = $id";
@@ -40,7 +38,7 @@ namespace Rawane\Core;
             }
             public static function findAll () : array
             {
-                $db->self::database ();
+                $db = self::database ();
                 $db->connexionDB ();
                 $sql = "SELECT * FROM " .self::table();
                 $resultat = $db->executeSelect ($sql);
@@ -49,7 +47,7 @@ namespace Rawane\Core;
             }
             public static function findById (int $id) : object | null
             {
-                $db->self::database ();
+                $db = self::database ();
                 $db->connexionDB ();
                 //--Requête préparée : C'est lorsque l'on injecte une variable pendant l'execution d'une requête.
                 $sql = "SELECT * FROM " .self::table(). " WHERE id = ?";
@@ -57,9 +55,9 @@ namespace Rawane\Core;
                 $db->closeConnexion ();
                 return $resultat;
             }
-            public static function findBy (string $sql, array $data = null, $single = false) : object | null | array
+            public static function findBy (string $sql, array $data = null, $single) : object | null | array
             {
-                $db->self::database ();
+                $db = self::database ();
                 $db->connexionDB ();
                 //--Requête préparée : C'est lorsque l'on injecte une variable pendant l'execution d'une requête.
                 $resultat = $db->executeSelect ($sql , $data, $single);

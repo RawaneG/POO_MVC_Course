@@ -21,8 +21,21 @@ namespace Rawane\Model;
         //--Redefinition de la méthode findAll
         public static function findAll () : array
         {
-            $sql = "SELECT * FROM " .parent::table(). " WHERE role LIKE ROLE_AC";
-            echo $sql;
-            return [];
+            $db = parent::database ();
+            $db->connexionDB ();
+            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` LIKE 'ROLE_AC'";
+            $resultat = $db->executeSelect ($sql);
+            $db->closeConnexion ();
+            return $resultat;
+        }
+        //--Redefinition de la méthode insert
+        public function insert () : int
+        {
+            $db = parent::database ();
+            $db->connexionDB ();
+            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`,`role`, `login`, `password` ) VALUES ( ?, ?, ?, ?)";
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, parent::$role, $this->login, $this->mdp]);
+            $db->closeConnexion ();
+            return $resultat;
         }
     }

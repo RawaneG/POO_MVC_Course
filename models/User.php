@@ -41,13 +41,16 @@ namespace Rawane\Model;
         //--Redefinition de la méthode findAll
         public static function findAll () : array
         {
-            $sql = "SELECT * FROM " .parent::table(). " WHERE role NOT LIKE 'ROLE_PROFESSEUR'";
-            echo $sql;
-            return [];
+            $db = parent::database ();
+            $db->connexionDB ();
+            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` NOT LIKE 'ROLE_PROFESSEUR'";
+            $resultat = $db->executeSelect ($sql);
+            $db->closeConnexion ();
+            return $resultat;
         }
-        public function findUserByLoginAndPassword (string $login, string $password) : object | null
+        public static function findUserByLoginAndPassword (string $login, string $password) : object | null
         {   
-            return self::findBy ("SELECT * FROM Personne WHERE login = ? AND password = ? ",
-            [login, password], true);
+            return parent::findBy ("SELECT * FROM Personne WHERE login = ? AND password = ? ",
+            [$login, $password], true);
         }
     }

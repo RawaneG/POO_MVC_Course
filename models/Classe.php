@@ -4,14 +4,16 @@ namespace Rawane\Model;
 
     class Classe extends Model
     {
+        private int $id;
         public function __construct ()
         {
             parent::$table = 'classe';
         }
         //--Approche : Fonctions navigationnelles
         //--Relation :  Many To Many avec Professeur
-        public function professeurs () : array
+        public function professeurs () : array | null
         {
-            return [];
+            $sql = "SELECT ...";
+            return parent::findyBy($sql, [$this->id]);
         }
     }

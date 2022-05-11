@@ -13,7 +13,7 @@ namespace Rawane\Core;
         public static function delete (int $id) : int;
         public static function findAll () : array;
         public static function findById (int $id) : object | null;
-        public static function findBy (string $sql, array $data = null, $single = false) : object | null | array;
+        public static function findBy (string $sql, array $data = null, $single) : object | null | array;
         //--$sql représente la requête SQL.
         //--$single est attribut un booléen qui permet de nous indiquer si une requête une seule donnée ou pas.
         //--$data représente les données que l'on veut manipuler avec la requête.
