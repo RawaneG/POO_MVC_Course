@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Rawane\\Model\\' => array($baseDir . '/models'),
+    'Rawane\\Exception\\' => array($baseDir . '/exceptions'),
     'Rawane\\Core\\' => array($baseDir . '/core'),
     'Rawane\\Controller\\' => array($baseDir . '/controllers'),
 );

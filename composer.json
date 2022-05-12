@@ -6,7 +6,8 @@
         {
             "Rawane\\Core\\": "core/",
             "Rawane\\Model\\": "models/",
-            "Rawane\\Controller\\": "controllers/"
+            "Rawane\\Controller\\": "controllers/",
+            "Rawane\\Exception\\": "exceptions/"
         }
     },
     "authors": 

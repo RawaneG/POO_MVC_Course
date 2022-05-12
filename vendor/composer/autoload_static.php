@@ -10,6 +10,7 @@ class ComposerStaticInit1ab9af8f74e53033ff84d27b9529aed2
         'R' => 
         array (
             'Rawane\\Model\\' => 13,
+            'Rawane\\Exception\\' => 17,
             'Rawane\\Core\\' => 12,
             'Rawane\\Controller\\' => 18,
         ),
@@ -19,6 +20,10 @@ class ComposerStaticInit1ab9af8f74e53033ff84d27b9529aed2
         'Rawane\\Model\\' => 
         array (
             0 => __DIR__ . '/../..' . '/models',
+        ),
+        'Rawane\\Exception\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/exceptions',
         ),
         'Rawane\\Core\\' => 
         array (

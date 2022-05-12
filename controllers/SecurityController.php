@@ -7,4 +7,8 @@ class SecurityController
     {
         
     }
+    public function deconnexion ()
+    {
+        
+    }
 }
