@@ -10,7 +10,7 @@ namespace Rawane\Model;
         //--Redefinition de la méthode findAll
         public static function findAll () : array
         {
-            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` LIKE 'ROLE_RP'";
-            return [];
+            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` LIKE ? ";
+            return parent::findBy($sql, [parent::$role]);
         }
     }

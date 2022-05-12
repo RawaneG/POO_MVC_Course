@@ -41,12 +41,8 @@ namespace Rawane\Model;
         //--Redefinition de la méthode findAll
         public static function findAll () : array
         {
-            $db = parent::database ();
-            $db->connexionDB ();
             $sql = "SELECT * FROM " .parent::table(). " WHERE `role` NOT LIKE 'ROLE_PROFESSEUR'";
-            $resultat = $db->executeSelect ($sql);
-            $db->closeConnexion ();
-            return $resultat;
+            return parent::findBy($sql);
         }
         public static function findUserByLoginAndPassword (string $login, string $password) : object | null
         {   

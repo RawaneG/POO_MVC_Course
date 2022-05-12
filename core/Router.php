@@ -23,7 +23,17 @@
             $uri = "/".$this->request->getUri()[0];
             if(isset($this->routes[$uri]))
             {
-                dd("route existe");
+                $route = $this->routes[$uri];
+                [$ctrClass, $action] = $route;
+                if(class_exists($ctrClass) && method_exists($ctrClass , $action))
+                {
+                    $ctrl = new $ctrClass ();
+                    call_user_func(array($ctrl , $action));
+                }
+                else
+                {
+                    throw new RouteNotFoundException();
+                }
             }
             else
             {
