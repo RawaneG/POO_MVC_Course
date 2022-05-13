@@ -2,7 +2,6 @@
 namespace Rawane\Controller;
 use Rawane\Core\Request;
 use Rawane\Core\Controller;
-use Rawane\Controller\SecurityController;
 
 class SecurityController extends Controller
 {
