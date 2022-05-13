@@ -1,7 +1,8 @@
 <?php
 namespace Rawane\Controller;
+use Rawane\Core\Controller;
 
-class ProfesseurController
+class ProfesseurController extends Controller
 {
     public function affecterClasse ()
     {

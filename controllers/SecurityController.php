@@ -1,14 +1,22 @@
 <?php
 namespace Rawane\Controller;
+use Rawane\Core\Request;
+use Rawane\Core\Controller;
+use Rawane\Controller\SecurityController;
 
-class SecurityController
+class SecurityController extends Controller
 {
     public function authentification ()
     {
-        dd("Je suis dans le controller Sécurity dans l'action authentification");
+        //--Affichage du formulaire de connexion : requête GET
+        if($this->request->isGet())
+        {
+            $this->render('security/login.html.php');
+        }
+        //--Traitement après soumission = requête POST
     }
     public function deconnexion ()
     {
-        dd("Je suis dans le controller Sécurity dans l'action deconnexion");
+        $this->redirectToRoute("login");
     }
 }

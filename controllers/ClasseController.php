@@ -1,14 +1,16 @@
 <?php
 namespace Rawane\Controller;
+use Rawane\Core\Controller;
+use Rawane\Controller\ClasseController;
 
-class ClasseController
+class ClasseController extends Controller
 {
     public function listerClasse ()
     {
-        dd("Je suis dans le controller Classe dans l'action listerClasse");
+
     }
     public function creerClasse ()
     {
-        dd("Je suis dans le controller Classe dans l'action creerClasse");
+        
     }
 }

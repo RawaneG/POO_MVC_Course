@@ -9,7 +9,7 @@ class Database
      {
           try 
           {
-               $this->pdo = new \PDO("mysql:dbname=Poo_MVC;host=localhost","root","");
+               $this->pdo = new \PDO("mysql:dbname=Poo_MVC;host=localhost:3307","root","");
           } 
           catch (\Exception $th) 
           {

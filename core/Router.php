@@ -27,7 +27,7 @@
                 [$ctrClass, $action] = $route;
                 if(class_exists($ctrClass) && method_exists($ctrClass , $action))
                 {
-                    $ctrl = new $ctrClass ();
+                    $ctrl = new $ctrClass($this->request);
                     call_user_func(array($ctrl , $action));
                 }
                 else
