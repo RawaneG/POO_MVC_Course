@@ -23,8 +23,12 @@ namespace Rawane\Model;
         //--Redefinition de la méthode findAll
         public static function findAll () : array
         {
-            $sql = "SELECT * FROM ? WHERE `role` LIKE 'ROLE_PROFESSEUR'";
-            return parent::findBy($sql, [parent::table()]);
+            $db = parent::database ();
+            $db->connexionDB ();
+            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` LIKE 'ROLE_PROFESSEUR'";
+            $resultat = $db->executeSelect ($sql);
+            $db->closeConnexion ();
+            return $resultat;
         }
         public function insert () : int
         {
