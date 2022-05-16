@@ -28,22 +28,6 @@ namespace Rawane\Model;
             return $this;
         }
 
-        public function getRole()
-        {
-            return $this->role;
-        }
-
-        public function setRole($role)
-        {
-            $this->role = $role;
-            return $this;
-        }
-        //--Redefinition de la méthode findAll
-        public static function findAll () : array
-        {
-            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` NOT LIKE 'ROLE_PROFESSEUR'";
-            return parent::findBy($sql);
-        }
         public static function findUserByLoginAndPassword (string $login, string $password) : object | null
         {   
             return parent::findBy ("SELECT * FROM Personne WHERE login = ? AND password = ? ",

@@ -36,12 +36,31 @@ namespace Rawane\Core;
                 $db->closeConnexion ();
                 return $resultat;
             }
+            public static function getClassName () : string
+            {
+                $classParent = get_called_class();
+                $current_classParent = str_replace('Rawane\\Model\\', '', $classParent);
+                return $current_classParent;
+            }
+            public static function obtainRole () : string
+            {
+                $nom_classe = self::getClassName ();
+                $current_role = 'ROLE_'.strtoupper($nom_classe);
+                return $current_role;
+            }
             public static function findAll () : array
             {
                 $db = self::database ();
                 $db->connexionDB ();
-                $sql = "SELECT * FROM " .self::table();
-                $resultat = $db->executeSelect ($sql);
+                if(self::table() == 'Personne' || self::table() == 'User')
+                {
+                    $sql = "SELECT * FROM " .self::table(). " WHERE `role` LIKE ? ";
+                }
+                else
+                {
+                    $sql = "SELECT * FROM " .self::table(). " WHERE `role` LIKE 'ROLE_PROFESSEUR'";
+                }
+                $resultat = $db->executeSelect ($sql, [self::obtainRole()]);
                 $db->closeConnexion ();
                 return $resultat;
             }

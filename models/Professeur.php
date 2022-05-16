@@ -20,16 +20,6 @@ namespace Rawane\Model;
             //--SELECT ALL (Exemple : SELECT * FROM Professeur)
             //--SELECT BY ID (Exemple : SELECT * FROM Professeur WHERE ID = 1)
 
-        //--Redefinition de la méthode findAll
-        public static function findAll () : array
-        {
-            $db = parent::database ();
-            $db->connexionDB ();
-            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` LIKE 'ROLE_PROFESSEUR'";
-            $resultat = $db->executeSelect ($sql);
-            $db->closeConnexion ();
-            return $resultat;
-        }
         public function insert () : int
         {
             $db = parent::database ();

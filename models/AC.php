@@ -18,16 +18,6 @@ namespace Rawane\Model;
             {
                 return [];
             }
-        //--Redefinition de la méthode findAll
-        public static function findAll () : array
-        {
-            $db = parent::database ();
-            $db->connexionDB ();
-            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` LIKE 'ROLE_AC'";
-            $resultat = $db->executeSelect ($sql);
-            $db->closeConnexion ();
-            return $resultat;
-        }
         //--Redefinition de la méthode insert
         public function insert () : int
         {

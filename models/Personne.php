@@ -17,11 +17,12 @@ namespace Rawane\Model;
     //-- pour être plus précis ceux qui ont la visibilité "static".
 abstract class Personne extends Model
 {
+    protected static string $role;
+    
     public function __construct ()
     {
         parent::$table = 'Personne';
     }
-    protected static string $role;
     public static function setNombreDePersonnes ($nombreDePersonnes) : void
     {
         self::$nombreDePersonnes = $nombreDePersonnes;
@@ -56,11 +57,14 @@ abstract class Personne extends Model
     {
         return $this->nomComplet;
     }
-    //Redéfinition
-    public static function findAll () : array
+    public function getRole()
     {
-        $sql = "SELECT * FROM " .parent::table();
-        echo $sql;
-        return [];
+        return $this->role;
+    }
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
     }
 }

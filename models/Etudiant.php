@@ -44,14 +44,4 @@ namespace Rawane\Model;
             $this->adresse = $adresse;
             return $this;
         }
-        //--Redefinition de la méthode findAll
-        public static function findAll () : array
-        {
-            $db = parent::database ();
-            $db->connexionDB ();
-            $sql = "SELECT * FROM " .parent::table(). " WHERE `role` LIKE 'ROLE_ETUDIANT'";
-            $resultat = $db->executeSelect ($sql);
-            $db->closeConnexion ();
-            return $resultat;
-        }
     }
