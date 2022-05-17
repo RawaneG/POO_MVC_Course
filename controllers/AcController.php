@@ -1,20 +1,21 @@
 <?php
 namespace Rawane\Controller;
 use Rawane\Core\Controller;
-use Rawane\Model\Professeur;    
+use Rawane\Model\AC;
 
-class PersonneController extends Controller
+class AcController extends Controller
 {
+
     public function lister ()
     {
         if($this->request->isGet())
         {
-            $acs = Professeur::findAll();
+            $acs = AC::findAll('role','ROLE_AC');
             $data = 
             [
                 'acs' => $acs
             ];
-            $this->render('personne/liste.html.php',$data);
+            $this->render('personne/ac/liste.html.php',$data);
         }
     }
 }

@@ -6,36 +6,39 @@
                 <thead>
                     <tr>
                     <th scope="col">Nom Complet</th>
-                    <th scope="col">Grade</th>
                     <th scope="col">Role</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($profs as $prof) 
+                        foreach ($acs as $ac) 
                         {
                     ?>
                     <tr>
                         <td>
                             <?=
-                                $prof->nom_complet;
+                                $ac->nom_complet;
                             ?>
                         </td>
                         <td>
                         <?=
-                                $prof->grade;
+                                $ac->role;
                             ?>
                         </td>
                         <td>
-                        <?=
-                                $prof->role;
-                            ?>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-outline-success">Ajouter</button>
-                            <button type="button" class="btn btn-outline-primary">Modifier</button>
-                            <button type="button" class="btn btn-outline-danger">Suppimer</button>
+                            <button type="button" class="btn btn-outline-success">
+                                <a href="/add" class="text-decoration-none color-success link-success">Ajouter</a>
+                            </button>
+                            <button type="button" class="btn btn-outline-warning">
+                                <a href="/edit" class="text-decoration-none color-warning link-warning">Modifier</a>
+                            </button>
+                            <button type="button" class="btn btn-outline-danger">
+                                <a href="/delete" class="text-decoration-none color-danger link-danger">Supprimer</a>
+                            </button>
+                            <button type="button" class="btn btn-outline-primary">
+                                <a href="/details" class="text-decoration-none color-primary link-primary">Détails</a>
+                            </button>
                         </td>
                     </tr>
                     <?php     

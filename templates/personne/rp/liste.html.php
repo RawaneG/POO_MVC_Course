@@ -1,35 +1,29 @@
 <div class="card ml-5">
         <div class="card-body">
-            <h4 class="card-title">Liste des Professeurs</h4>
+            <h4 class="card-title">Liste des RP</h4>
             <p class="card-text">
             <table class="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col">Nom Complet</th>
-                    <th scope="col">Grade</th>
                     <th scope="col">Role</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($profs as $prof) 
+                        foreach ($rps as $rp) 
                         {
                     ?>
                     <tr>
                         <td>
                             <?=
-                                $prof->nom_complet;
+                                $rp->nom_complet;
                             ?>
                         </td>
                         <td>
                             <?=
-                                $prof->grade;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $prof->role;
+                                $rp->role;
                             ?>
                         </td>
                         <td>

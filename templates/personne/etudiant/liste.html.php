@@ -1,35 +1,47 @@
 <div class="card ml-5">
         <div class="card-body">
-            <h4 class="card-title">Liste des Professeurs</h4>
+            <h4 class="card-title">Liste des Étudiants</h4>
             <p class="card-text">
             <table class="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col">Nom Complet</th>
-                    <th scope="col">Grade</th>
+                    <th scope="col">Matricule</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Sexe</th>
                     <th scope="col">Role</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                        foreach ($profs as $prof) 
+                        foreach ($etudiants as $etudiant) 
                         {
                     ?>
                     <tr>
                         <td>
                             <?=
-                                $prof->nom_complet;
+                                $etudiant->nom_complet;
                             ?>
                         </td>
                         <td>
-                            <?=
-                                $prof->grade;
+                        <?=
+                                $etudiant->matricule;
                             ?>
                         </td>
                         <td>
-                            <?=
-                                $prof->role;
+                        <?=
+                                $etudiant->adresse;
+                            ?>
+                        </td>
+                        <td>
+                        <?=
+                                $etudiant->sexe;
+                            ?>
+                        </td>
+                        <td>
+                        <?=
+                                $etudiant->role;
                             ?>
                         </td>
                         <td>
