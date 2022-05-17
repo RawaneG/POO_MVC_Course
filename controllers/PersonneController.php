@@ -1,8 +1,7 @@
 <?php
 namespace Rawane\Controller;
-use Rawane\Core\Request;
 use Rawane\Core\Controller;
-use Rawane\Controller\PersonneController;
+use Rawane\Model\Professeur;    
 
 class PersonneController extends Controller
 {
@@ -10,7 +9,12 @@ class PersonneController extends Controller
     {
         if($this->request->isGet())
         {
-            $this->render('personne/liste.html.php');
+            $profs = Professeur::findAll();
+            $data = 
+            [
+                'profs' => $profs
+            ];
+            $this->render('personne/liste.html.php',$data);
         }
     }
 }

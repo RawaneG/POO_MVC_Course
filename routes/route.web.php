@@ -4,6 +4,7 @@ use Rawane\Exception\RouteNotFoundException;
 use Rawane\Controller\SecurityController;
 use Rawane\Controller\ClasseController;
 use Rawane\Controller\PersonneController;
+use Rawane\Controller\ProfesseurController;
 
 
 $router = new Router();
@@ -13,6 +14,7 @@ $router->route('/logout',[SecurityController::class,"deconnexion"]);
 $router->route('/classes',[ClasseController::class,"listerClasse"]);
 $router->route('/add-classe',[ClasseController::class,"creerClasse"]);
 $router->route('/personnes',[PersonneController::class,"lister"]);
+$router->route('/professeurs',[ProfesseurController::class,"listerProfesseur"]);
 
 //--C'est lui qui doit récupérer l'uri et vérifier est-ce qu'elle existe dans le tableau de routes.
 //--L'url nous indique précisément quel est le controlleur à charger et par conséquent l'action à effectuer

@@ -11,7 +11,7 @@ namespace Rawane\Core;
         public function update () : int;
         //--Méthodes d'instances transformées en Méthodes Statiques.
         public static function delete (int $id) : int;
-        public static function findAll () : array;
+        public static function findAll (string $title = '', string $query = "") : array;
         public static function findById (int $id) : object | null;
         public static function findBy (string $sql, array $data = null, $single) : object | null | array;
         //--$sql représente la requête SQL.

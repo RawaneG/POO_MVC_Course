@@ -1,5 +1,6 @@
 <?php
     namespace Rawane\Core;
+    use Rawane\Core\Constantes;
 
     class Controller
     {

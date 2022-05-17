@@ -17,12 +17,17 @@ namespace Rawane\Model;
     //-- pour être plus précis ceux qui ont la visibilité "static".
 abstract class Personne extends Model
 {
-    protected static string $role;
-    
     public function __construct ()
     {
         parent::$table = 'Personne';
     }
+    protected static string $role;
+    //--Attributs d'instances : Attributs spécifiques à chaque objet
+    protected int $id;
+    protected string $nomComplet;
+    //--Attributs de classes ou Static : Attributs accessibles à l'ensemble des objets
+    private static int $nombreDePersonnes;
+
     public static function setNombreDePersonnes ($nombreDePersonnes) : void
     {
         self::$nombreDePersonnes = $nombreDePersonnes;
@@ -31,15 +36,10 @@ abstract class Personne extends Model
     {
         return self::$nombreDePersonnes;
     }
-    //--Attributs d'instances : Attributs spécifiques à chaque objet
-    protected int $id;
-    protected string $nomComplet;
-    //--Attributs de classes ou Static : Attributs accessibles à l'ensemble des objets
-    private static int $nombreDePersonnes;
     //--Les setters sont des méthodes publiques qui nous permettent de modifier les propriétés privées d'une classe donnée.
     public function setId ($id) : self
     {
-    // //--$this représente l'objet en cours qui utilise la classe
+    //--$this représente l'objet en cours qui utilise la classe
         $this->id = $id;
         return $this;
     }
