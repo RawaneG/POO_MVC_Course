@@ -53,7 +53,6 @@ class Database
      {
           $query = $this->pdo->prepare ($sql);
           $query->execute ($data);
-          var_dump($query);
           return $query->rowCount();
      }
 }

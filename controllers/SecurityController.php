@@ -2,6 +2,8 @@
 namespace Rawane\Controller;
 use Rawane\Core\Request;
 use Rawane\Core\Controller;
+use Rawane\Model\Professeur;
+
 
 class SecurityController extends Controller
 {
@@ -20,6 +22,18 @@ class SecurityController extends Controller
         if($this->request->isGet())
         {
             $this->render('security/'.__FUNCTION__);
+        }
+        else
+        {
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+                extract($_POST);
+
+                $nouveau_prof = new Professeur ();
+                $nouveau_prof->setNomComplet($nom_complet);
+                $nouveau_prof->setGrade($grade);
+                $nouveau_prof->insert();
+            }
         }
         //--Traitement après soumission = requête POST
     }

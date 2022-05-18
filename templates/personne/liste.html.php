@@ -6,7 +6,7 @@
                 <thead>
                     <tr>
                     <th scope="col">Nom Complet</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Role</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,9 +21,9 @@
                             ?>
                         </td>
                         <td>
-                            <a href="/edit" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
-                            <a href="/delete" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
-                            <a href="/details" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
+                            <?=
+                                $ac->role;
+                            ?>
                         </td>
                     </tr>
                     <?php     
@@ -31,7 +31,6 @@
                     ?>
                 </tbody>
             </table>
-                <a href="/RP-add" class="btn btn-outline-success text-decoration-none color-success">Ajouter</a>
             </p>
         </div>
     </div>
