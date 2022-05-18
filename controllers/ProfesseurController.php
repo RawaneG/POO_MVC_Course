@@ -18,7 +18,7 @@ class ProfesseurController extends Controller
             [
                 'profs' => $profs
             ];
-            $this->render('personne/professeur/liste.html.php',$data);
+            $this->render('personne/professeur/liste',$data);
         }
     }
 }

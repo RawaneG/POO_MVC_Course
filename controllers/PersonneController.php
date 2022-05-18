@@ -14,7 +14,7 @@ class PersonneController extends Controller
             [
                 'acs' => $acs
             ];
-            $this->render('personne/liste.html.php',$data);
+            $this->render('personne/liste',$data);
         }
     }
 }

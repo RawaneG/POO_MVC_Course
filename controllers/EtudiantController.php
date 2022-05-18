@@ -15,7 +15,7 @@ class EtudiantController extends Controller
             [
                 'etudiants' => $etudiants
             ];
-            $this->render('personne/etudiant/liste.html.php',$data);
+            $this->render('personne/etudiant/liste',$data);
         }
     }
 }

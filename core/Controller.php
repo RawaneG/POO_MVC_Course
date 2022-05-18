@@ -17,7 +17,7 @@
             $data["request"] = $this->request;
             ob_start();
             extract($data);
-            require_once(Constantes::ROOT()."templates/".$path);
+            require_once(Constantes::ROOT()."templates/".$path.".html.php");
             $content_for_views = ob_get_clean();
             require_once(Constantes::ROOT()."templates/layout/base.html.php");
         }

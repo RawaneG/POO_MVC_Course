@@ -9,10 +9,9 @@
     </div>
         <!-- Text input -->
     <div class="form-outline mb-4">
-        <label class="form-label" for="">Role</label>
+        <label class="form-label" for="">Grade</label>
         <input type="text" id="" class="form-control" />
     </div>
-
         <!-- Text input -->
     <div class="form-outline mb-4">
         <label class="form-label" for="">Matricule</label>

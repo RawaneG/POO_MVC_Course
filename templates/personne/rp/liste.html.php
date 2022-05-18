@@ -6,7 +6,6 @@
                 <thead>
                     <tr>
                     <th scope="col">Nom Complet</th>
-                    <th scope="col">Role</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -22,23 +21,9 @@
                             ?>
                         </td>
                         <td>
-                            <?=
-                                $rp->role;
-                            ?>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-outline-success">
-                                <a href="/add" class="text-decoration-none color-success link-success">Ajouter</a>
-                            </button>
-                            <button type="button" class="btn btn-outline-warning">
-                                <a href="/edit" class="text-decoration-none color-warning link-warning">Modifier</a>
-                            </button>
-                            <button type="button" class="btn btn-outline-danger">
-                                <a href="/delete" class="text-decoration-none color-danger link-danger">Supprimer</a>
-                            </button>
-                            <button type="button" class="btn btn-outline-primary">
-                                <a href="/details" class="text-decoration-none color-primary link-primary">Détails</a>
-                            </button>
+                            <a href="/edit" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
+                            <a href="/delete" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
+                            <a href="/details" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
                         </td>
                     </tr>
                     <?php     
@@ -46,6 +31,7 @@
                     ?>
                 </tbody>
             </table>
+                <a href="/RP-add" class="btn btn-outline-success text-decoration-none color-success">Ajouter</a>
             </p>
         </div>
     </div>

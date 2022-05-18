@@ -46,7 +46,6 @@ namespace Rawane\Core;
                     $resultat = $db->executeSelect ($sql, [$query]);
 
                 }
-
                 else
                 {
                     $sql = "SELECT * FROM " .self::table();

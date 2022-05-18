@@ -15,35 +15,35 @@ class RPController extends Controller
             [
                 'rps' => $rps
             ];
-            $this->render('personne/rp/liste.html.php',$data);
+            $this->render('personne/rp/liste',$data);
         }
     }
     public function ajouter ()
     {
         if($this->request->isGet())
         {
-            $this->render('personne/rp/add.html.php');
+            $this->render('personne/rp/add');
         }
     }
     public function modifier ()
     {
         if($this->request->isGet())
         {
-            $this->render('personne/rp/edit.html.php');
+            $this->render('personne/rp/edit');
         }
     }
     public function supprimer ()
     {
         if($this->request->isGet())
         {
-            $this->render('personne/rp/delete.html.php');
+            $this->render('personne/rp/delete');
         }
     }
     public function details ()
     {
         if($this->request->isGet())
         {
-            $this->render('personne/rp/details.html.php');
+            $this->render('personne/rp/details');
         }
     }
 }
