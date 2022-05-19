@@ -5,7 +5,6 @@ use Rawane\Model\AC;
 
 class AcController extends Controller
 {
-
     public function lister ()
     {
         if($this->request->isGet())
@@ -16,6 +15,17 @@ class AcController extends Controller
                 'acs' => $acs
             ];
             $this->render('personne/ac/liste',$data);
+        }
+    }
+    public function ajouter ()
+    {
+        if($this->request->isGet())
+        {
+            
+        }
+        else
+        {
+
         }
     }
 }

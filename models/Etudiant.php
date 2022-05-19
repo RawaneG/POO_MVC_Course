@@ -44,4 +44,15 @@ namespace Rawane\Model;
             $this->adresse = $adresse;
             return $this;
         }
+        public function insert () : int
+        {
+            $db = parent::database ();
+            $db->connexionDB ();
+            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`, `role`, `login`, `password`,`matricule`,`adresse`,`sexe` ) 
+            VALUES ( ?, ?, ?, ?, ?, ?, ?)";
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet,
+            parent::$role, $this->login, $this->mdp, $this->matricule, $this->adresse, $this->sexe]);
+            $db->closeConnexion ();
+            return $resultat;
+        }
     }

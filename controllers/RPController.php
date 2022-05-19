@@ -2,6 +2,8 @@
 namespace Rawane\Controller;
 use Rawane\Core\Controller;
 use Rawane\Model\RP;
+use Rawane\Model\Professeur;
+
 
 class RPController extends Controller
 {
@@ -23,6 +25,10 @@ class RPController extends Controller
         if($this->request->isGet())
         {
             $this->render('personne/rp/add');
+        }
+        else
+        {
+            
         }
     }
     public function modifier ()

@@ -49,7 +49,7 @@
                     ?>
                 </tbody>
             </table>
-                <a href="/RP-add" class="btn btn-outline-success text-decoration-none color-success">Ajouter</a>
+                <a href="/Etudiant-add" class="btn btn-outline-success text-decoration-none color-success">Ajouter</a>
             </p>
         </div>
     </div>
