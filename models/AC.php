@@ -23,7 +23,8 @@ namespace Rawane\Model;
         {
             $db = parent::database ();
             $db->connexionDB ();
-            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`,`role`, `login`, `password` ) VALUES ( ?, ?, ?, ?)";
+            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`,`role`, `login`, `password` ) 
+            VALUES ( ?, ?, ?, ?)";
             $resultat = $db->executeUpdate ($sql, [$this->nomComplet, parent::$role, $this->login, $this->mdp]);
             $db->closeConnexion ();
             return $resultat;
