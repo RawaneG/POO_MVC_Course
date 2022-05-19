@@ -1,12 +1,11 @@
 <div class="card ml-5">
         <div class="card-body">
-            <h4 class="card-title">Liste des Utilisateurs</h4>
+            <h4 class="card-title">Liste des Personnes</h4>
             <p class="card-text">
             <table class="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col">Nom Complet</th>
-                    <th scope="col">Role</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -18,11 +17,6 @@
                         <td>
                             <?=
                                 $ac->nom_complet;
-                            ?>
-                        </td>
-                        <td>
-                            <?=
-                                $ac->role;
                             ?>
                         </td>
                     </tr>

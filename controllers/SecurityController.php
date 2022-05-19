@@ -2,6 +2,7 @@
 namespace Rawane\Controller;
 use Rawane\Core\Request;
 use Rawane\Core\Controller;
+use Rawane\Model\User;
 
 
 class SecurityController extends Controller
@@ -14,6 +15,19 @@ class SecurityController extends Controller
             $this->render('security/login');
         }
         //--Traitement après soumission = requête POST
+        else
+        {
+            extract($_POST);
+            $connected = User::findUserByLoginAndPassword($login,$password);
+            if($connected == null)
+            {
+                $this->redirectToRoute('login');
+            }
+            else
+            {
+                $this->redirectToRoute('Etudiant');
+            }
+        }
     }
     public function inscription ()
     {
