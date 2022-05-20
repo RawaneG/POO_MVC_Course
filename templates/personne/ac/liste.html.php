@@ -1,11 +1,15 @@
+<?php
+    use Rawane\Core\HtmlProvider;
+?>
 <div class="card ml-5">
         <div class="card-body">
-            <h4 class="card-title">Liste des AC</h4>
+            <h4 class="card-title">Liste des Attachés</h4>
             <p class="card-text">
             <table class="table table-striped">
                 <thead>
                     <tr>
                     <th scope="col">Nom Complet</th>
+                    <th scope="col">Rôle</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -15,11 +19,7 @@
                         {
                     ?>
                     <tr>
-                        <td>
-                            <?=
-                                $ac->nom_complet;
-                            ?>
-                        </td>
+                        <?= HtmlProvider::td(['nom_complet','role'],$ac); ?>
                         <td>
                             <a href="/edit" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
                             <a href="/delete" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>

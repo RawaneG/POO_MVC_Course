@@ -44,7 +44,6 @@ namespace Rawane\Core;
                 {
                     $sql = "SELECT * FROM " .self::table(). " WHERE $title LIKE ? ";
                     $resultat = $db->executeSelect ($sql, [$query]);
-
                 }
                 else
                 {

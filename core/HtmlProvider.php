@@ -1,5 +1,5 @@
 <?php
-namespace App\Core;
+namespace Rawane\Core;
 abstract class HtmlProvider
 {
     /**
@@ -17,15 +17,18 @@ abstract class HtmlProvider
         <a class='mt-2 text-white float-end btn btn-sm btn-$btnColor' href='$link'>$textBtn</a>
         </nav>";
     }
-    public static function GenerateTable(array $datas)
+    public static function GenerateTable(array $donnees)
     {
         echo "<table>";
             self::startTr();
         echo "</table>";
     }
-    public static function td()
+    public static function td(array $colonnes, object $ligne)
     {
-        echo "<td></td>";
+        foreach ($colonnes as $colonne) 
+        {
+            echo '<td>'. $ligne->$colonne. '</td>';
+        }
     }
     public static function startTr()
     {

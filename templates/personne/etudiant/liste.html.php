@@ -1,3 +1,6 @@
+<?php
+    use Rawane\Core\HtmlProvider;
+?>
 <div class="card ml-5">
         <div class="card-body">
             <h4 class="card-title">Liste des Étudiants</h4>
@@ -9,6 +12,7 @@
                     <th scope="col">Matricule</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Sexe</th>
+                    <th scope="col">Rôle</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -18,30 +22,11 @@
                         {
                     ?>
                     <tr>
+                        <?= HtmlProvider::td(['nom_complet','matricule','adresse','sexe','role'],$etudiant); ?>
                         <td>
-                            <?=
-                                $etudiant->nom_complet;
-                            ?>
-                        </td>
-                        <td>
-                        <?=
-                                $etudiant->matricule;
-                            ?>
-                        </td>
-                        <td>
-                        <?=
-                                $etudiant->adresse;
-                            ?>
-                        </td>
-                        <td>
-                        <?=
-                                $etudiant->sexe;
-                            ?>
-                        </td>
-                        <td>
-                            <a href="/edit" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
-                            <a href="/delete" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
-                            <a href="/details" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
+                            <a href="/Etudiant-edit" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
+                            <a href="/Etudiant-delete" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
+                            <a href="/Etudiant-details" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
                         </td>
                     </tr>
                     <?php     

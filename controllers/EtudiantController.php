@@ -38,4 +38,11 @@ class EtudiantController extends Controller
             $this->redirectToRoute("Etudiant");
         }
     }
+    public function supprimer ()
+    {
+        if($this->request->isGet())
+        {
+            
+        }
+    }
 }

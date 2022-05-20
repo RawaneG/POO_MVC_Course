@@ -37,4 +37,8 @@ class ProfesseurController extends Controller
             $this->redirectToRoute('professeurs');
         }
     }
+    public function supprimer ()
+    {
+        
+    }
 }

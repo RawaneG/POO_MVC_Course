@@ -1,3 +1,6 @@
+<?php
+    use Rawane\Core\HtmlProvider;
+?>
 <div class="card ml-5">
         <div class="card-body">
             <h4 class="card-title">Liste des Personnes</h4>
@@ -6,6 +9,7 @@
                 <thead>
                     <tr>
                     <th scope="col">Nom Complet</th>
+                    <th scope="col">Rôle</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -14,11 +18,7 @@
                         {
                     ?>
                     <tr>
-                        <td>
-                            <?=
-                                $ac->nom_complet;
-                            ?>
-                        </td>
+                        <?= HtmlProvider::td(['nom_complet','role'],$ac); ?>
                     </tr>
                     <?php     
                         }

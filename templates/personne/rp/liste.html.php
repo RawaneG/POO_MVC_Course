@@ -1,3 +1,6 @@
+<?php
+    use Rawane\Core\HtmlProvider;
+?>
 <div class="card ml-5">
         <div class="card-body">
             <h4 class="card-title">Liste des RP</h4>
@@ -15,11 +18,7 @@
                         {
                     ?>
                     <tr>
-                        <td>
-                            <?=
-                                $rp->nom_complet;
-                            ?>
-                        </td>
+                        <?= HtmlProvider::td(['nom_complet'],$rp); ?>
                         <td>
                             <a href="/edit" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
                             <a href="/delete" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
