@@ -18,14 +18,14 @@ class SecurityController extends Controller
         else
         {
             extract($_POST);
-            $connected = User::findUserByLoginAndPassword($login,$password);
-            if($connected == null)
+            $user = User::findUserByLoginAndPassword($login,$password);
+            if($user == null)
             {
                 $this->redirectToRoute('login');
             }
             else
             {
-                $_SESSION['user_connect'] = $connected;
+                $_SESSION['user_connect'] = $user;
                 $this->redirectToRoute('Etudiant');
             }
         }

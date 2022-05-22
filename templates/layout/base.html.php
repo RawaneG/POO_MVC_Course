@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="<?=$Constantes::WEB_ROOT."css/style.css";?>">
 </head>
 <body>
+    <?php 
+    if(isset($menu_for_users))
+    {
+        echo $menu_for_users;
+    }
+    ?>
     <?= $content_for_views ;?>
     <script src="<?=$Constantes::WEB_ROOT."bootstrap/js/bootstrap.min.js";?>"></script>
     <script src="<?=$Constantes::WEB_ROOT."js/script.js";?>"></script>

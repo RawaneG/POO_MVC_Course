@@ -33,12 +33,12 @@
                     //--
                     $ctrl = new $ctrClass($this->request);
                     //--On met toutes les pages ne nécessitant pas une connexion dans la variable Free
-                    $free = ['SecurityController/authentification',"*"];
+                    $free = ['SecurityController/authentification'];
                     //--FreeTest est la variable à comparer avec Free pour vérifier si elle nécessite une 
                         //--connexion ou pas.
                     $freeTest = explode("\\" , $ctrl::class)[2]."/".$action;
                     //--On vérfie si le controller ainsi que l'action de FreeTest se trouvent dans la variable Free
-                    if(in_array("*", $free) || in_array($freeTest, $free))
+                    if(in_array($freeTest, $free))
                     {
                         //--Si c'est le cas on appelle la fonction du controller correspondant
                         call_user_func(array($ctrl , $action));
