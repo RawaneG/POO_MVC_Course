@@ -3,10 +3,13 @@
 ?>
 <div class="card ml-5">
         <div class="card-body">
-            <h4 class="card-title">Liste des Attachés</h4>
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="card-title">Liste des Attachés</h4>
+                <a href="/" class="btn btn-outline-success text-decoration-none color-success">Ajouter un Attaché</a>
+            </div>
             <p class="card-text">
             <table class="table table-striped">
-                <thead>
+                <thead class="table-dark">
                     <tr>
                     <th scope="col">Nom Complet</th>
                     <th scope="col">Rôle</th>
@@ -31,7 +34,6 @@
                     ?>
                 </tbody>
             </table>
-                <a href="/" class="btn btn-outline-success text-decoration-none color-success">Ajouter</a>
             </p>
         </div>
     </div>

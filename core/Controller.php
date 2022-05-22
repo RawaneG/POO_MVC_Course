@@ -2,7 +2,6 @@
     namespace Rawane\Core;
     use Rawane\Core\Constantes;
     use Rawane\Core\HtmlProvider;
-
     class Controller
     {
         protected Request $request;

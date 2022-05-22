@@ -1,6 +1,5 @@
 <?php
 namespace Rawane\Core;
-
     class Constantes
     {
         public const WEB_ROOT = "http://localhost:8001/";

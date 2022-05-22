@@ -8,20 +8,16 @@ class Role
     {
         $this->session = $session;
     }
-    public static function isConnect ()
+    public static function isRP () : bool
     {
-
-    }
-    public static function isRP ()
-    {
-        
+        return self::isConnect() && $_SESSION['user_connect']['role'] == 'ROLE_RP';
     }    
-    public static function isAC ()
+    public static function isAC () : bool
     {
-        
+        return self::isConnect() && $_SESSION['user_connect']['role'] == 'ROLE_AC';
     }    
     public static function isEtudiant ()
     {
-        
+        return self::isConnect() && $_SESSION['user_connect']['role'] == 'ROLE_ETUDIANT';
     }
 }

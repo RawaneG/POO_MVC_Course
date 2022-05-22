@@ -11,8 +11,8 @@ use Rawane\Controller\SecurityController;
 use Rawane\Exception\RouteNotFoundException;
 
 $router = new Router();
-$router->route('/login',[SecurityController::class,"authentification"]);
 $router->route('/',[SecurityController::class,"authentification"]);
+$router->route('/login',[SecurityController::class,"authentification"]);
 $router->route('/logout',[SecurityController::class,"deconnexion"]);
 $router->route('/personnes',[PersonneController::class,"lister"]);
 $router->route('/professeurs',[ProfesseurController::class,"listerProfesseur"]);

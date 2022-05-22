@@ -12,6 +12,11 @@ class Session
             session_start();
         }
     }
+    //--Fonction qui permet de vérifier si l'utilisateur est connecté ou non
+    public static function isConnect () : bool
+    {
+        return isset($_SESSION['user_connect']);
+    }
     //--Ajouter une valeur dans la session
     public function set (string $key, $data)
     {

@@ -3,7 +3,7 @@ namespace Rawane\Controller;
 use Rawane\Core\Request;
 use Rawane\Core\Controller;
 use Rawane\Model\User;
-
+use Rawane\Core\Session;
 
 class SecurityController extends Controller
 {
@@ -25,6 +25,7 @@ class SecurityController extends Controller
             }
             else
             {
+                $_SESSION['user_connect'] = $connected;
                 $this->redirectToRoute('Etudiant');
             }
         }
@@ -40,6 +41,8 @@ class SecurityController extends Controller
     }
     public function deconnexion ()
     {
+        unset($_SESSION['user_connect']);
+        session_destroy();
         $this->redirectToRoute("login");
     }
 }
