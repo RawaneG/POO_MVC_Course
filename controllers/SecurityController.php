@@ -12,6 +12,11 @@ class SecurityController extends Controller
         //--Affichage du formulaire de connexion : requête GET
         if($this->request->isGet())
         {
+            if(Session::isConnect())
+            {
+                unset($_SESSION['user_connect']);
+                session_destroy();
+            }
             $this->render('security/login');
         }
         //--Traitement après soumission = requête POST
@@ -26,7 +31,7 @@ class SecurityController extends Controller
             else
             {
                 $_SESSION['user_connect'] = $user;
-                $this->redirectToRoute('Etudiant');
+                $this->redirectToRoute('professeurs');
             }
         }
     }

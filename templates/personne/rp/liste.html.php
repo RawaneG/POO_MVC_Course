@@ -17,6 +17,12 @@
                 </thead>
                 <tbody>
                     <?php
+                    if($rps == null)
+                    {
+                        return;
+                    }
+                    else
+                    {
                         foreach ($rps as $rp) 
                         {
                     ?>
@@ -30,6 +36,7 @@
                     </tr>
                     <?php     
                         }
+                    }
                     ?>
                 </tbody>
             </table>

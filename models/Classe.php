@@ -9,10 +9,6 @@ namespace Rawane\Model;
         private string $filiere;
         private string $niveau;
         
-        public function __construct ()
-        {
-            parent::$table = 'classe';
-        }
         //--Approche : Fonctions navigationnelles
         //--Relation :  Many To Many avec Professeur
         public function professeurs () : array | null
@@ -59,6 +55,15 @@ namespace Rawane\Model;
             $db->connexionDB ();
             $sql = "INSERT INTO " .parent::table(). " (`libelle`,`filiere`, `niveau`) VALUES ( ?, ?, ? ) ";
             $resultat = $db->executeUpdate ($sql, [$this->libelle, $this->filiere, $this->niveau]);
+            $db->closeConnexion ();
+            return $resultat;
+        }
+        public function update (int $id) : int
+        {
+            $db = self::database ();
+            $db->connexionDB ();
+            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, grade = ? WHERE id = ?";
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade, $id]);
             $db->closeConnexion ();
             return $resultat;
         }

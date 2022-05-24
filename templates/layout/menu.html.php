@@ -8,9 +8,6 @@
         <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Etudiant">Etudiants</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="/professeurs">Professeurs</a>
                 </li>
                 <li class="nav-item">
@@ -21,6 +18,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/module">Modules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/inscription">Inscriptions</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

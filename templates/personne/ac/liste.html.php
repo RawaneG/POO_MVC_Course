@@ -18,6 +18,12 @@
                 </thead>
                 <tbody>
                     <?php
+                    if($acs == null)
+                    {
+                        return;
+                    }
+                    else
+                    {
                         foreach ($acs as $ac) 
                         {
                     ?>
@@ -31,6 +37,7 @@
                     </tr>
                     <?php     
                         }
+                    }
                     ?>
                 </tbody>
             </table>

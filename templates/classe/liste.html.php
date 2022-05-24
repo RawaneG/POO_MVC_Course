@@ -19,6 +19,12 @@
                 </thead>
                 <tbody>
                     <?php
+                    if($classes == null)
+                    {
+                        return;
+                    }
+                    else
+                    {
                         foreach ($classes as $classe) 
                         {
                     ?>
@@ -32,6 +38,7 @@
                     </tr>
                     <?php     
                         }
+                    }
                     ?>
                 </tbody>
             </table>

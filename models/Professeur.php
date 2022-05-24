@@ -34,7 +34,7 @@ namespace Rawane\Model;
             $db = self::database ();
             $db->connexionDB ();
             $sql = "UPDATE " .self::table(). " SET nom_complet = ?, grade = ? WHERE id = ?";
-            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade]);
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade, $id]);
             $db->closeConnexion ();
             return $resultat;
         }

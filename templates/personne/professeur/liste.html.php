@@ -19,6 +19,12 @@
                 </thead>
                 <tbody>
                     <?php
+                    if($profs == null)
+                    {
+                        return;
+                    }
+                    else
+                    {
                         foreach ($profs as $prof) 
                         {
                     ?>
@@ -32,6 +38,7 @@
                     </tr>
                     <?php     
                         }
+                    }
                     ?>
                 </tbody>
             </table>

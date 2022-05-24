@@ -4,10 +4,6 @@ namespace Rawane\Model;
 
     class Inscription extends Model
     {
-        public function __construct ()
-        {
-            parent::$table = 'inscription';
-        }
         //--Approche : Fonctions navigationnelles
         //--Relation :  Many To One avec AC
         public function ac () : AC
@@ -25,5 +21,15 @@ namespace Rawane\Model;
             WHERE a.id = i.annee_id 
             AND i.id = ? ";
             return parent::findBy($sql , [$this->id]);
+        }
+        public static function registered() : array | null
+        {
+            $db = self::database ();
+            $db->connexionDB ();
+            $sql = "SELECT * FROM Inscription, Classe, AnneeScolaire WHERE classe_id = Classe.id
+            AND annee_id = AnneeScolaire.id";
+            $resultat = $db->executeSelect ($sql);
+            $db->closeConnexion ();
+            return $resultat;
         }
     }

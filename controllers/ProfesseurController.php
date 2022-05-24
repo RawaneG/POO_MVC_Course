@@ -11,7 +11,7 @@ class ProfesseurController extends Controller
     {
         
     }
-    public function listerProfesseur ()
+    public function lister ()
     {
         if($this->request->isGet())
         {
@@ -68,7 +68,12 @@ class ProfesseurController extends Controller
         }   
         else
         {
-            //--Je modifie pour de bon avec POST
+            extract($_POST);
+            $nouveau_prof = new Professeur ();
+            $nouveau_prof->setNomComplet($nom_complet);
+            $nouveau_prof->setGrade($grade);
+            $nouveau_prof->update($id);
+            $this->redirectToRoute("professeurs");
         }
     }
 }

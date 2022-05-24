@@ -16,7 +16,6 @@
             <div class="pt-1 mb-4">
               <input class="btn btn-light btn-lg btn-block" type="submit" value="Se Connecter">
             </div>
-            <p class="small mb-5 pb-lg-2"><a class="text-light" href="#!">Mot de Passe oublié ?</a></p>
           </form>
         </div>
       </div>
