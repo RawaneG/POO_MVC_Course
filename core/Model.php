@@ -22,7 +22,7 @@ namespace Rawane\Core;
             {
                 return 0;
             }
-            public function update () : int
+            public function update (int $id) : int
             {
                 return 0;
             }
@@ -36,7 +36,7 @@ namespace Rawane\Core;
                 $db->closeConnexion ();
                 return $resultat;
             }
-            public static function findAll (string $title = '', string $query = '') : array
+            public static function findAll (string $title = '', string $query = '') : array | null
             {
                 $db = self::database ();
                 $db->connexionDB ();
@@ -59,7 +59,7 @@ namespace Rawane\Core;
                 $db->connexionDB ();
                 //--Requête préparée : C'est lorsque l'on injecte une variable pendant l'execution d'une requête.
                 $sql = "SELECT * FROM " .self::table(). " WHERE id = ?";
-                $resultat = $db->executeSelect ($sql , [$id]);
+                $resultat = $db->executeSelect ($sql , [$id], true);
                 $db->closeConnexion ();
                 return $resultat;
             }

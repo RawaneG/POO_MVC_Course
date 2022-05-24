@@ -24,6 +24,9 @@
         {
             //--
             $uri = "/".$this->request->getUri()[0];
+            $param = $this->request->getUri();
+            unset($param[0]);
+            $param = (count($param) >= 1 ) ? array_values($param) : [];
             if(isset($this->routes[$uri]))
             {
                 $route = $this->routes[$uri];
@@ -41,14 +44,14 @@
                     if(in_array($freeTest, $free))
                     {
                         //--Si c'est le cas on appelle la fonction du controller correspondant
-                        call_user_func(array($ctrl , $action));
+                        call_user_func_array(array($ctrl , $action),$param);
                     }
                     //--Dans le cas contraire ça veut dire que l'utilisateur se trouve dans une page nécessitant
                         //--une connexion
                     else if (Session::isConnect())
                     {
                         //--S'il est connecté donc l'action du controller correspondant est encore appelé
-                        call_user_func(array($ctrl , $action));
+                        call_user_func_array(array($ctrl , $action),$param);
                     }
                     //--Dans le cas contraire l'utilisateur n'est pas connecté et une erreur est affichée
                     else

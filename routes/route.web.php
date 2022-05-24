@@ -25,8 +25,10 @@ $router->route('/Etudiant-add',[EtudiantController::class,"ajouter"]);
 $router->route('/Etudiant-edit',[EtudiantController::class,"modifier"]);
 $router->route('/Etudiant-delete',[EtudiantController::class,"supprimer"]);
 $router->route('/Etudiant-details',[EtudiantController::class,"details"]);
-$router->route('/RP',[RPController::class,"lister"]);
-$router->route('/AC',[AcController::class,"lister"]);
+$router->route('/classe',[ClasseController::class,"lister"]);
+$router->route('/classe-add',[ClasseController::class,"ajouter"]);
+$router->route('/demande',[DemandeController::class,"lister"]);
+$router->route('/module',[ModuleController::class,"lister"]);
 
 //--C'est lui qui doit récupérer l'uri et vérifier est-ce qu'elle existe dans le tableau de routes.
 //--L'url nous indique précisément quel est le controlleur à charger et par conséquent l'action à effectuer

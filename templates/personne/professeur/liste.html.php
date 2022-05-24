@@ -25,9 +25,9 @@
                     <tr>
                         <?= HtmlProvider::td(['nom_complet','grade','role'],$prof); ?>
                         <td>
-                            <a href="/professeurs-edit" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
-                            <a href="/professeurs-delete" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
-                            <a href="/professeurs-details" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
+                            <a href="/professeurs-edit/<?=$prof->id?>" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
+                            <a href="/professeurs-delete/<?=$prof->id?>" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
+                            <a href="/professeurs-details/<?=$prof->id?>" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
                         </td>
                     </tr>
                     <?php     

@@ -8,10 +8,10 @@ namespace Rawane\Core;
             //--fonction mais on n'a aucune idée de ce qu'elle va faire.
         //--Méthodes d'instances.
         public function insert () : int;
-        public function update () : int;
+        public function update (int $id) : int;
         //--Méthodes d'instances transformées en Méthodes Statiques.
         public static function delete (int $id) : int;
-        public static function findAll (string $title = '', string $query = "") : array;
+        public static function findAll (string $title = '', string $query = "") : array | null;
         public static function findById (int $id) : object | null;
         public static function findBy (string $sql, array $data = null, $single) : object | null | array;
         //--$sql représente la requête SQL.

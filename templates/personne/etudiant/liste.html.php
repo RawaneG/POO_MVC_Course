@@ -27,9 +27,9 @@
                     <tr>
                         <?= HtmlProvider::td(['nom_complet','matricule','adresse','sexe','role'],$etudiant); ?>
                         <td>
-                            <a href="/Etudiant-edit" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
-                            <a href="/Etudiant-delete" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
-                            <a href="/Etudiant-details" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
+                            <a href="/Etudiant-edit/<?=$etudiant->id?>" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
+                            <a href="/Etudiant-delete/<?=$etudiant->id?>" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
+                            <a href="/Etudiant-details/<?=$etudiant->id?>" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
                         </td>
                     </tr>
                     <?php     

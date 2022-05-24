@@ -29,6 +29,15 @@ namespace Rawane\Model;
             $db->closeConnexion ();
             return $resultat;
         }
+        public function update (int $id) : int
+        {
+            $db = self::database ();
+            $db->connexionDB ();
+            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, grade = ? WHERE id = ?";
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade]);
+            $db->closeConnexion ();
+            return $resultat;
+        }
         public function getGrade()
         {
             return $this->grade;

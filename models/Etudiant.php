@@ -55,4 +55,15 @@ namespace Rawane\Model;
             $db->closeConnexion ();
             return $resultat;
         }
+        public function update (int $id) : int
+        {
+            $db = self::database ();
+            $db->connexionDB ();
+            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, login = ?, password = ?, role = ?, matricule = ?, adresse = ?, 
+            sexe = ? WHERE id = ?";
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->login, $this->password,
+            parent::$role, $this->matricule, $this->adresse, $this->sexe, $id]);
+            $db->closeConnexion ();
+            return $resultat;
+        }
     }

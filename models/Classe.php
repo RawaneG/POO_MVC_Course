@@ -8,6 +8,7 @@ namespace Rawane\Model;
         private string $libelle;
         private string $filiere;
         private string $niveau;
+        
         public function __construct ()
         {
             parent::$table = 'classe';
@@ -51,5 +52,14 @@ namespace Rawane\Model;
         {
             $this->niveau = $niveau;
             return $this;
+        }
+        public function insert () : int
+        {
+            $db = parent::database ();
+            $db->connexionDB ();
+            $sql = "INSERT INTO " .parent::table(). " (`libelle`,`filiere`, `niveau`) VALUES ( ?, ?, ? ) ";
+            $resultat = $db->executeUpdate ($sql, [$this->libelle, $this->filiere, $this->niveau]);
+            $db->closeConnexion ();
+            return $resultat;
         }
     }

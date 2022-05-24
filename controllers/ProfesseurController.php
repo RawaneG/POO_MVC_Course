@@ -1,7 +1,9 @@
 <?php
 namespace Rawane\Controller;
 use Rawane\Core\Controller;
+use Rawane\Core\Model;
 use Rawane\Model\Professeur;
+
 
 class ProfesseurController extends Controller
 {
@@ -37,8 +39,36 @@ class ProfesseurController extends Controller
             $this->redirectToRoute('professeurs');
         }
     }
-    public function supprimer ()
+    public function supprimer ($id)
     {
-        
+        if($this->request->isGet())
+        {
+            $profs = Professeur::delete($id);
+            $this->redirectToRoute("professeurs");
+        }
+    }
+    public function details ($id)
+    {
+        if($this->request->isGet())
+        {
+            $profs = Professeur::findById($id);
+            dd($profs);
+        }
+    }
+    public function modifier ($id)
+    {
+        if($this->request->isGet())
+        {
+            $profs = Professeur::findById($id);
+            $data = 
+            [
+                'profs' => $profs
+            ];
+            $this->render('personne/professeur/edit',$data);
+        }   
+        else
+        {
+            //--Je modifie pour de bon avec POST
+        }
     }
 }

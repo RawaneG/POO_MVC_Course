@@ -14,7 +14,13 @@
                     <a class="nav-link" href="/professeurs">Professeurs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inscriptions</a>
+                    <a class="nav-link" href="/classe">Classes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/demande">Demandes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/module">Modules</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

@@ -24,7 +24,7 @@ class Database
      {
           $query = $this->pdo->prepare ($sql);
           $query->execute ($data);
-        
+     
           if($single)
           {
                if($query->rowCount() == 0)
