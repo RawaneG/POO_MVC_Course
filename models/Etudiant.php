@@ -48,10 +48,17 @@ namespace Rawane\Model;
         {
             $db = parent::database ();
             $db->connexionDB ();
-            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`,`role`, `login`,
-            `password`,`matricule`,`adresse`,`sexe` ) VALUES ( ?, ?, ?, ?, ?, ?, ?)";
-            $resultat = $db->executeUpdate ($sql, [$this->nomComplet,
-            parent::$role, $this->login, $this->mdp, $this->matricule, $this->adresse, $this->sexe]);
+            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`,`adresse`,`sexe`) VALUES ( ?, ?, ?)";
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->adresse, $this->sexe]);
+            $db->closeConnexion ();
+            return $resultat;
+        }
+        public function matricule () : string
+        {
+            $db = parent::database ();
+            $db->connexionDB ();
+            $sql = "UPDATE Personne SET matricule = ? WHERE id = ?";
+            $resultat = $db->executeUpdate ($sql, [$this->matricule, $this->id]);
             $db->closeConnexion ();
             return $resultat;
         }
@@ -59,7 +66,7 @@ namespace Rawane\Model;
         {
             $db = self::database ();
             $db->connexionDB ();
-            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, login = ?, password = ?, role = ?, matricule = ?, adresse = ?, 
+            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, role = ?, matricule = ?, adresse = ?,
             sexe = ? WHERE id = ?";
             $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->login, $this->password,
             parent::$role, $this->matricule, $this->adresse, $this->sexe, $id]);

@@ -12,7 +12,7 @@ class EtudiantController extends Controller
         if($this->request->isGet())
         {
             $etudiants = Etudiant::findAll('role','ROLE_ETUDIANT');
-            $data = 
+            $data =
             [
                 'etudiants' => $etudiants
             ];
@@ -26,7 +26,7 @@ class EtudiantController extends Controller
             $this->render('personne/etudiant/add');
         }
         else
-        { 
+        {
             extract($_POST);
             $nouvel_etudiant = new Etudiant ();
             $nouvel_etudiant->setNomComplet($nom_complet);
@@ -59,12 +59,12 @@ class EtudiantController extends Controller
         if($this->request->isGet())
         {
             $etudiants = Etudiant::findById($id);
-            $data = 
+            $data =
             [
                 'etudiants' => $etudiants
             ];
             $this->render('personne/etudiant/edit',$data);
-        }   
+        }
         else
         {
             extract($_POST);

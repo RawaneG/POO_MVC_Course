@@ -1,7 +1,7 @@
 <?php
 namespace Rawane\Controller;
 use Rawane\Core\Controller;
-use Rawane\Model\Professeur;    
+use Rawane\Model\Professeur;
 
 class PersonneController extends Controller
 {
@@ -10,7 +10,7 @@ class PersonneController extends Controller
         if($this->request->isGet())
         {
             $acs = Professeur::findAll();
-            $data = 
+            $data =
             [
                 'acs' => $acs
             ];

@@ -13,7 +13,7 @@ namespace Rawane\Model;
         {
             return [];
         }
-        //--Dans la table Professeur je dois être capable de faire : 
+        //--Dans la table Professeur je dois être capable de faire :
             //--INSERT
             //--UPDATE
             //--DELETE
@@ -24,8 +24,8 @@ namespace Rawane\Model;
         {
             $db = parent::database ();
             $db->connexionDB ();
-            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`, `role`, `grade` ) VALUES ( ?, ?, ? )";
-            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, parent::$role, $this->grade]);
+            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`,`grade`) VALUES ( ?, ?)";
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade]);
             $db->closeConnexion ();
             return $resultat;
         }
@@ -33,7 +33,7 @@ namespace Rawane\Model;
         {
             $db = self::database ();
             $db->connexionDB ();
-            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, grade = ? WHERE id = ?";
+            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, grade = ?, module = ? WHERE id = ?";
             $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade, $id]);
             $db->closeConnexion ();
             return $resultat;

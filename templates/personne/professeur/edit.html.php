@@ -6,14 +6,14 @@
                     <div class="card-body p-md-5">
                         <div class="row justify-content-center align-items-center">
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                                <p class="text-center fw-bold mb-5 mx-1 mx-md-4 mt-4">Ajouter un Professeur</p>
-                                <form class="mx-1 mx-md-4" action="/professeurs-edit/<?= $profs->id ?>" method = "POST">
+                                <p class="text-center fw-bold mb-5 mx-1 mx-md-4 mt-4">Modifier un Professeur</p>
+                                <form class="mx-1 mx-md-4" action="/professeurs-edit/<?= $profs->id ;?>" method = "POST">
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">Nom Complet</label>
                                         <input type="text" id="form3Example1c" class="form-control" name = "nom_complet"
-                                        value="<?= $profs->nom_complet ?>"/>
+                                        value = "<?= $profs->nom_complet ?>"/>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-row align-items-center mb-4">
@@ -21,7 +21,25 @@
                                         <div class="form-outline flex-fill mb-0">
                                             <label class="form-label" for="form3Example1c">Grade</label>
                                         <input type="text" id="form3Example1c" class="form-control" name = "grade"
-                                        value="<?= $profs->grade ?>"/>
+                                        value = "<?= $profs->grade ?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label name = "module" class="form-label d-block" for="form3Example1c">Module</label>
+                                            <select class="form-select w-100 text-center">
+                                                <?php
+                                                foreach ($modules as $module)
+                                                {
+                                                ?>
+                                                <option value="<?= $module->id ?>">
+                                                <?= $module->nomModule ?>
+                                                </option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">

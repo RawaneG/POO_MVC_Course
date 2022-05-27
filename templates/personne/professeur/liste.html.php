@@ -13,8 +13,8 @@
                     <tr>
                     <th scope="col">Nom Complet</th>
                     <th scope="col">Grade</th>
-                    <th scope="col">Rôle</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Modules</th>
+                    <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,18 +25,18 @@
                     }
                     else
                     {
-                        foreach ($profs as $prof) 
+                        foreach ($profs as $prof)
                         {
                     ?>
                     <tr>
-                        <?= HtmlProvider::td(['nom_complet','grade','role'],$prof); ?>
+                        <?= HtmlProvider::td(['nom_complet','grade','nomModule'],$prof); ?>
                         <td>
-                            <a href="/professeurs-edit/<?=$prof->id?>" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
+                            <a href="/professeurs-edit/<?=$prof->id; ?>" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
                             <a href="/professeurs-delete/<?=$prof->id?>" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
                             <a href="/professeurs-details/<?=$prof->id?>" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
                         </td>
                     </tr>
-                    <?php     
+                    <?php
                         }
                     }
                     ?>

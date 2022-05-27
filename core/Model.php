@@ -63,7 +63,7 @@ namespace Rawane\Core;
                 $db->closeConnexion ();
                 return $resultat;
             }
-            public static function findBy (string $sql, array $data = null, $single) : object | null | array
+            public static function findBy (string $sql, array $data = [], $single = false) : object | null | array
             {
                 $db = self::database ();
                 $db->connexionDB ();

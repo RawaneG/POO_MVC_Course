@@ -15,9 +15,7 @@
                     <th scope="col">Matricule</th>
                     <th scope="col">Adresse</th>
                     <th scope="col">Sexe</th>
-                    <th scope="col">Filière</th>
                     <th scope="col">Classe</th>
-                    <th scope="col">Niveau</th>
                     <th scope="col">Année Scolaire</th>
                     <th scope="col">Actions</th>
                     </tr>
@@ -34,14 +32,14 @@
                         {
                     ?>
                     <tr>
-                        <?= HtmlProvider::td(['nom_complet','matricule','adresse','sexe','filiere','libelle','niveau','libelle_annee'],$inscription); ?>
+                        <?= HtmlProvider::td(['nom_complet','matricule','adresse','sexe','libelle','libelle_annee'],$inscription); ?>
                         <td>
                             <a href="/inscription-edit/<?=$inscription->id?>" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
                             <a href="/inscription-delete/<?=$inscription->id?>" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
                             <a href="/inscription-details/<?=$inscription->id?>" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
                         </td>
                     </tr>
-                    <?php     
+                    <?php
                         }
                     }
                     ?>

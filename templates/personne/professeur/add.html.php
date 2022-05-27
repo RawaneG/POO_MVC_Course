@@ -22,6 +22,25 @@
                                         <input type="text" id="form3Example1c" class="form-control" name = "grade"/>
                                         </div>
                                     </div>
+                                    <div class="mb-4">
+                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <label class="form-label mb-4" for="form3Example1c">Module</label>
+                                        <div class="d-flex flex-wrap justify-content-evenly">
+                                            <?php
+                                                    foreach ($modules as $module)
+                                                    {
+                                            ?>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="<?= $module->id ?>" name="modules[]" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    <?= $module->nomModule ?>
+                                                </label>
+                                            </div>
+                                            <?php
+                                                    }
+                                            ?>
+                                        </div>
+                                    </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                         <input type="submit" value="Ajouter" class="btn btn-primary btn-lg">
                                     </div>

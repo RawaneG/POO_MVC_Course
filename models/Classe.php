@@ -8,7 +8,7 @@ namespace Rawane\Model;
         private string $libelle;
         private string $filiere;
         private string $niveau;
-        
+
         //--Approche : Fonctions navigationnelles
         //--Relation :  Many To Many avec Professeur
         public function professeurs () : array | null
@@ -62,8 +62,8 @@ namespace Rawane\Model;
         {
             $db = self::database ();
             $db->connexionDB ();
-            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, grade = ? WHERE id = ?";
-            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade, $id]);
+            $sql = "UPDATE " .self::table(). " SET libelle = ?, filiere = ?, niveau = ? WHERE id = ?";
+            $resultat = $db->executeUpdate ($sql, [$this->libelle, $this->filiere, $this->niveau, $id]);
             $db->closeConnexion ();
             return $resultat;
         }

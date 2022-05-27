@@ -4,16 +4,14 @@ use Rawane\Core\Controller;
 use Rawane\Model\RP;
 use Rawane\Model\Professeur;
 
-
 class RPController extends Controller
 {
-
     public function lister ()
     {
         if($this->request->isGet())
         {
             $rps = RP::findAll('role','ROLE_RP');
-            $data = 
+            $data =
             [
                 'rps' => $rps
             ];
@@ -28,7 +26,7 @@ class RPController extends Controller
         }
         else
         {
-            
+
         }
     }
     public function modifier ()

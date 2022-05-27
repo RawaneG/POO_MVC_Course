@@ -11,7 +11,7 @@ class ClasseController extends Controller
         if($this->request->isGet())
         {
             $classes = Classe::findAll();
-            $data = 
+            $data =
             [
                 'classes' => $classes
             ];
@@ -60,12 +60,12 @@ class ClasseController extends Controller
         if($this->request->isGet())
         {
             $classes = Classe::findById($id);
-            $data = 
+            $data =
             [
                 'classes' => $classes
             ];
             $this->render('classe/edit',$data);
-        }   
+        }
         else
         {
             extract($_POST);

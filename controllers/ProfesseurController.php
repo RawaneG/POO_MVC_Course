@@ -1,22 +1,19 @@
 <?php
 namespace Rawane\Controller;
-use Rawane\Core\Controller;
-use Rawane\Core\Model;
-use Rawane\Model\Professeur;
-
+    use Rawane\Core\Controller;
+    use Rawane\Core\Model;
+    use Rawane\Model\Professeur;
+    use Rawane\Model\Enseigner;
+    use Rawane\Model\Module;
 
 class ProfesseurController extends Controller
 {
-    public function affecterClasse ()
-    {
-        
-    }
     public function lister ()
     {
         if($this->request->isGet())
         {
-            $profs = Professeur::findAll('role','ROLE_PROFESSEUR');
-            $data = 
+            $profs = Enseigner::findAllEnseignants();
+            $data =
             [
                 'profs' => $profs
             ];
@@ -27,15 +24,30 @@ class ProfesseurController extends Controller
     {
         if($this->request->isGet())
         {
-            $this->render('personne/professeur/add');
+            $modules = Module::findAll();
+            $data =
+            [
+                'modules' => $modules
+            ];
+            $this->render('personne/professeur/add',$data);
         }
         else
         {
             extract($_POST);
+            $mes_modules = [];
+            foreach ($modules as $module)
+            {
+                $mes_modules[] = array_push($mes_modules,$module);
+            }
             $nouveau_prof = new Professeur ();
             $nouveau_prof->setNomComplet($nom_complet);
             $nouveau_prof->setGrade($grade);
-            $nouveau_prof->insert();
+            $last_id = $nouveau_prof->insert();
+            if($last_id > 0)
+            {
+                $latest_prof = new Enseigner ();
+                $latest_prof->insertModules($mes_modules, $last_id);
+            }
             $this->redirectToRoute('professeurs');
         }
     }
@@ -59,13 +71,15 @@ class ProfesseurController extends Controller
     {
         if($this->request->isGet())
         {
-            $profs = Professeur::findById($id);
-            $data = 
+            $profs = Enseigner::findById($id);
+            $modules = Module::findAll();
+            $data =
             [
-                'profs' => $profs
+                'profs' => $profs,
+                'modules' => $modules
             ];
             $this->render('personne/professeur/edit',$data);
-        }   
+        }
         else
         {
             extract($_POST);

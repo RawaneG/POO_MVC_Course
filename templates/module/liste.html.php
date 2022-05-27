@@ -5,35 +5,35 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
                 <h4 class="card-title">Liste des Modules</h4>
-                <a href="/Etudiant-add" class="btn btn-outline-success text-decoration-none color-success">Ajouter un module</a>
+                <a href="/module-add" class="btn btn-outline-success text-decoration-none color-success">Ajouter un module</a>
         </div>
             <p class="card-text">
             <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">Module</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    if($etudiants == null)
+                    if($modules == null)
                     {
                         return;
                     }
                     else
                     {
-                        foreach ($etudiants as $etudiant) 
+                        foreach ($modules as $module)
                         {
                     ?>
                     <tr>
-                        <?= HtmlProvider::td(['nomModule','matricule','adresse','sexe','role'],$etudiant); ?>
+                        <?= HtmlProvider::td(['nomModule'],$module); ?>
                         <td>
-                            <a href="/Etudiant-edit/<?=$etudiant->id?>" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
-                            <a href="/Etudiant-delete/<?=$etudiant->id?>" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
-                            <a href="/Etudiant-details/<?=$etudiant->id?>" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
+                            <a href="/module-edit/<?=$module->id?>" class="btn btn-outline-warning text-decoration-none color-warning">Modifier</a>
+                            <a href="/module-delete/<?=$module->id?>" class="btn btn-outline-danger text-decoration-none color-danger">Supprimer</a>
                         </td>
                     </tr>
-                    <?php     
+                    <?php
                         }
                     }
                     ?>

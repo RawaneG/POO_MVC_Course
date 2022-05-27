@@ -1,17 +1,17 @@
 <?php
 namespace Rawane\Core;
 
-class Database 
+class Database
 {
      private \PDO | null $pdo = null;
 
      public function connexionDB() : void
      {
-          try 
+          try
           {
                $this->pdo = new \PDO("mysql:dbname=Poo_MVC;host=localhost:3307","root","");
-          } 
-          catch (\Exception $th) 
+          }
+          catch (\Exception $th)
           {
                die('Connexion refusée');
           }
@@ -24,7 +24,7 @@ class Database
      {
           $query = $this->pdo->prepare ($sql);
           $query->execute ($data);
-     
+
           if($single)
           {
                if($query->rowCount() == 0)
@@ -53,6 +53,6 @@ class Database
      {
           $query = $this->pdo->prepare ($sql);
           $query->execute ($data);
-          return $query->rowCount();
+          return $query->rowCount() >= 1 ? $this->pdo->lastInsertId() : $query->rowCount();
      }
 }
