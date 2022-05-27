@@ -50,4 +50,13 @@ class SecurityController extends Controller
         session_destroy();
         $this->redirectToRoute("login");
     }
+    public function introuvable ()
+    {
+        if($this->request->isGet())
+        {
+            unset($_SESSION['user_connect']);
+            session_destroy();
+            $this->render('page_not_found/index');
+        }
+    }
 }

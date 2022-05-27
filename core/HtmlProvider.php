@@ -25,7 +25,7 @@ abstract class HtmlProvider
     }
     public static function td(array $colonnes, object $ligne)
     {
-        foreach ($colonnes as $colonne) 
+        foreach ($colonnes as $colonne)
         {
             echo '<td>'. $ligne->$colonne. '</td>';
         }

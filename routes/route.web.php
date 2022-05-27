@@ -12,6 +12,7 @@ use Rawane\Exception\RouteNotFoundException;
 
 $router = new Router();
 $router->route('/',[SecurityController::class,"authentification"]);
+$router->route('/not_found',[SecurityController::class,"introuvable"]);
 $router->route('/inscription',[InscriptionController::class,"lister"]);
 $router->route('/inscription-add',[InscriptionController::class,"ajouter"]);
 $router->route('/inscription-edit',[InscriptionController::class,"modifier"]);
@@ -48,5 +49,5 @@ $router->route('/demande-details',[DemandeController::class,"details"]);
     }
     catch (RouteNotFoundException $ex)
     {
-        echo $ex->message;
+        echo $ex->message();
     }

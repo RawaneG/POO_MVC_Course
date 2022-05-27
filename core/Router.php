@@ -1,11 +1,11 @@
 <?php
     namespace Rawane\Core;
-    use Rawane\Core\Session;        
+    use Rawane\Core\Session;
     use Rawane\Exception\RouteNotFoundException;
     class Router
     {
         private Request $request;
-        
+
         //--Après la fonction construct, $request aura la capacité d'utiliser les fonctions qui se trouvent
         //--dans la classe Request.
         public function __construct ()
@@ -36,8 +36,8 @@
                     //--
                     $ctrl = new $ctrClass($this->request);
                     //--On met toutes les pages ne nécessitant pas une connexion dans la variable Free
-                    $free = ['SecurityController/authentification'];
-                    //--FreeTest est la variable à comparer avec Free pour vérifier si elle nécessite une 
+                    $free = ['SecurityController/authentification','SecurityController/introuvable'];
+                    //--FreeTest est la variable à comparer avec Free pour vérifier si elle nécessite une
                         //--connexion ou pas.
                     $freeTest = explode("\\" , $ctrl::class)[2]."/".$action;
                     //--On vérfie si le controller ainsi que l'action de FreeTest se trouvent dans la variable Free

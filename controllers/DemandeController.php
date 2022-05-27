@@ -2,6 +2,7 @@
 namespace Rawane\Controller;
     use Rawane\Core\Model;
     use Rawane\Core\Controller;
+    use Rawane\Model\Demande;
 
     class DemandeController extends Controller
     {
@@ -9,7 +10,12 @@ namespace Rawane\Controller;
         {
             if($this->request->isGet())
             {
-                $this->render('demande/liste');
+                $demandes = Demande::findAll();
+                $data =
+                [
+                    'demandes' => $demandes
+                ];
+                $this->render('demande/liste',$data);
             }
         }
         public function ajouter ()

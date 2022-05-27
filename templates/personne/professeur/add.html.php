@@ -25,7 +25,7 @@
                                     <div class="mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <label class="form-label mb-4" for="form3Example1c">Module</label>
-                                        <div class="d-flex flex-wrap justify-content-evenly">
+                                        <div class="d-flex flex-wrap justify-content-between">
                                             <?php
                                                     foreach ($modules as $module)
                                                     {

@@ -1,7 +1,11 @@
 <?php
     namespace Rawane\Exception;
+    use Rawane\Core\Constantes;
 
     class RouteNotFoundException extends \Exception
     {
-        public $message = "Error 404, Page Not Found";
+        public function message()
+        {
+            header("location:".Constantes::WEB_ROOT.'not_found');
+        }
     }

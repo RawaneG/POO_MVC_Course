@@ -23,7 +23,7 @@
             $content_for_views = ob_get_clean();
             if(Session::isConnect())
             {
-                ob_start(); 
+                ob_start();
                 require_once(Constantes::ROOT()."templates/layout/menu.html.php");
                 $menu_for_users = ob_get_clean();
             }

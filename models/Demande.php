@@ -7,5 +7,4 @@ class Demande extends Model
     private int $id;
     private string $motif;
     private string $date;
-
 }
