@@ -24,8 +24,8 @@ namespace Rawane\Model;
         {
             $db = parent::database ();
             $db->connexionDB ();
-            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`,`grade`) VALUES ( ?, ?)";
-            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade]);
+            $sql = "INSERT INTO " .parent::table(). " (`nom_complet`,`grade`,`role`) VALUES ( ?, ?, ?)";
+            $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade, parent::$role]);
             $db->closeConnexion ();
             return $resultat;
         }
@@ -33,7 +33,7 @@ namespace Rawane\Model;
         {
             $db = self::database ();
             $db->connexionDB ();
-            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, grade = ?, module = ? WHERE id = ?";
+            $sql = "UPDATE " .self::table(). " SET nom_complet = ?, grade = ? WHERE id = ?";
             $resultat = $db->executeUpdate ($sql, [$this->nomComplet, $this->grade, $id]);
             $db->closeConnexion ();
             return $resultat;

@@ -12,7 +12,7 @@ class ProfesseurController extends Controller
     {
         if($this->request->isGet())
         {
-            $profs = Enseigner::findAllEnseignants();
+            $profs = Professeur::findAll('role','ROLE_PROFESSEUR');
             $data =
             [
                 'profs' => $profs
@@ -24,31 +24,33 @@ class ProfesseurController extends Controller
     {
         if($this->request->isGet())
         {
-            $modules = Module::findAll();
+            $mes_profs = Professeur::findAll('role','ROLE_PROFESSEUR');
             $data =
             [
-                'modules' => $modules
+                'mes_profs' => $mes_profs
             ];
             $this->render('personne/professeur/add',$data);
         }
         else
         {
             extract($_POST);
-            $mes_modules = [];
-            foreach ($modules as $module)
+            if($id == "" && $modifier == "")
             {
-                $mes_modules[] = array_push($mes_modules,$module);
+                $nouveau_prof = new Professeur ();
+                $nouveau_prof->setNomComplet($nom_complet);
+                $nouveau_prof->setGrade($grade);
+                $nouveau_prof->setRole($grade);
+                $nouveau_prof->insert();
+                $this->redirectToRoute('professeurs');
             }
-            $nouveau_prof = new Professeur ();
-            $nouveau_prof->setNomComplet($nom_complet);
-            $nouveau_prof->setGrade($grade);
-            $last_id = $nouveau_prof->insert();
-            if($last_id > 0)
+            else
             {
-                $latest_prof = new Enseigner ();
-                $latest_prof->insertModules($mes_modules, $last_id);
+                $nouveau_prof = new Professeur ();
+                $nouveau_prof->setNomComplet($nom_complet);
+                $nouveau_prof->setGrade($grade);
+                $nouveau_prof->update($id);
+                $this->redirectToRoute("professeurs");
             }
-            $this->redirectToRoute('professeurs');
         }
     }
     public function supprimer ($id)
@@ -64,30 +66,21 @@ class ProfesseurController extends Controller
         if($this->request->isGet())
         {
             $profs = Professeur::findById($id);
-            dd($profs);
+            $this->render('personne/professeur/details');
         }
     }
     public function modifier ($id)
     {
         if($this->request->isGet())
         {
-            $profs = Enseigner::findById($id);
-            $modules = Module::findAll();
+            $mes_profs = Professeur::findAll('role','ROLE_PROFESSEUR');
+            $profs = Professeur::findById($id);
             $data =
             [
-                'profs' => $profs,
-                'modules' => $modules
+                'mes_profs' => $mes_profs,
+                'profs' => $profs
             ];
-            $this->render('personne/professeur/edit',$data);
-        }
-        else
-        {
-            extract($_POST);
-            $nouveau_prof = new Professeur ();
-            $nouveau_prof->setNomComplet($nom_complet);
-            $nouveau_prof->setGrade($grade);
-            $nouveau_prof->update($id);
-            $this->redirectToRoute("professeurs");
+            $this->render('personne/professeur/add',$data);
         }
     }
 }

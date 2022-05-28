@@ -28,12 +28,24 @@ class ClasseController extends Controller
         else
         {
             extract($_POST);
-            $nouvelle_classe = new Classe ();
-            $nouvelle_classe->setLibelle($libelle_classe);
-            $nouvelle_classe->setFiliere($filiere_classe);
-            $nouvelle_classe->setNiveau($niveau_classe);
-            $nouvelle_classe->insert();
-            $this->redirectToRoute("classe");
+            if($modifier == "" && $id == "")
+            {
+                $nouvelle_classe = new Classe ();
+                $nouvelle_classe->setLibelle($libelle_classe);
+                $nouvelle_classe->setFiliere($filiere_classe);
+                $nouvelle_classe->setNiveau($niveau_classe);
+                $nouvelle_classe->insert();
+                $this->redirectToRoute("classe");
+            }
+            else
+            {
+                $nouvelle_classe = new Classe ();
+                $nouvelle_classe->setLibelle($libelle_classe);
+                $nouvelle_classe->setFiliere($filiere_classe);
+                $nouvelle_classe->setNiveau($niveau_classe);
+                $nouvelle_classe->update($id);
+                $this->redirectToRoute("classe");
+            }
         }
     }
 
@@ -64,17 +76,7 @@ class ClasseController extends Controller
             [
                 'classes' => $classes
             ];
-            $this->render('classe/edit',$data);
-        }
-        else
-        {
-            extract($_POST);
-            $nouvelle_classe = new Classe ();
-            $nouvelle_classe->setLibelle($libelle_classe);
-            $nouvelle_classe->setFiliere($filiere_classe);
-            $nouvelle_classe->setNiveau($niveau_classe);
-            $nouvelle_classe->update($id);
-            $this->redirectToRoute("classe");
+            $this->render('classe/add',$data);
         }
     }
 }

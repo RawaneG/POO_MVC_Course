@@ -10,7 +10,7 @@ class AcController extends Controller
         if($this->request->isGet())
         {
             $acs = AC::findAll('role','ROLE_AC');
-            $data = 
+            $data =
             [
                 'acs' => $acs
             ];
@@ -21,7 +21,7 @@ class AcController extends Controller
     {
         if($this->request->isGet())
         {
-            
+
         }
         else
         {

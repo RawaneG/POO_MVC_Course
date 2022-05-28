@@ -27,7 +27,7 @@
                     }
                     else
                     {
-                        foreach ($etudiants as $etudiant) 
+                        foreach ($etudiants as $etudiant)
                         {
                     ?>
                     <tr>
@@ -38,7 +38,7 @@
                             <a href="/Etudiant-details/<?=$etudiant->id?>" class="btn btn-outline-primary text-decoration-none color-primary">Détails</a>
                         </td>
                     </tr>
-                    <?php     
+                    <?php
                         }
                     }
                     ?>
